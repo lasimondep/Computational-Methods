@@ -90,7 +90,7 @@ def FromMaxRadius(A):
     return A, k
 
 
-test_systems = [
+test_case = [
     LinearSystem(
         'Диагональная матрица', A=(
         (5,   0,   0),
@@ -107,7 +107,7 @@ test_systems = [
     HilbertSystem(15),
 ]
 
-for mat in test_systems:
+for mat in test_case:
     print(mat.msg)
     print('A:', mat.A, sep='\n')
     print()

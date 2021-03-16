@@ -62,7 +62,7 @@ def Seidel(A, b, eps, x_prev=None):
         x_prev = x.copy()
 
 
-test_systems = [
+test_case = [
     LinearSystem(
         'Тест 1: матрица со строгим диагональным преобладанием', A=(
         (239, -19,  23),
@@ -97,7 +97,7 @@ test_systems = [
 
 eps = 1e-15
 
-for lae in test_systems:
+for lae in test_case:
     print(lae.msg)
     print('A:', lae.A, sep='\n')
     print('b =', lae.b)

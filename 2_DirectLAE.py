@@ -27,7 +27,7 @@ test_case = [
 # Параметры регуляризации
 Alpha = np.arange(1, 1e4) * 1e-5
 
-for _i, lae in enumerate(test_systems):
+for _i, lae in enumerate(test_case):
     Delta_LU = []
     Delta_QR = []
 
@@ -67,6 +67,6 @@ for _i, lae in enumerate(test_systems):
 
     plotQR = Plot2D((r'$\alpha$', r'$|\Delta|$'), (True, False))
     plotQR.plot(Alpha, Delta_QR, '.', label='QR decomposition')
-    
+
     plotLU.save('plotLU_%d.png' % (_i + 1))
     plotQR.save('plotQR_%d.png' % (_i + 1))

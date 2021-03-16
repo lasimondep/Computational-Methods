@@ -62,9 +62,6 @@ test_systems = [
         (0,   0,  13),
     )),
     LinearSystem(
-        'Симметричная вещественная матрица', A=np.eye(5)
-    ),
-    LinearSystem(
         'Симметричная вещественная матрица с нулевыми элементами', A=(
         (2,   0,   3),
         (0,  -4, -11),
@@ -80,14 +77,8 @@ test_systems = [
     HilbertSystem(100),
 ]
 
-for i in range(5):
-    for j in range(i):
-        test_systems[1].A[i, j] = i
-        test_systems[1].A[j, i] = i
-
 for mat in test_systems:
     print(mat.msg)
-    print('True max eigen                          :', np.linalg.eigvals(mat.A).max())
     print()
 
     print('Степенной метод')
