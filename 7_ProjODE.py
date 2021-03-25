@@ -113,7 +113,7 @@ test_case = [
         f=lambda x: 2 - x,
         a=-1, b=1,
         alpha=(1, 0, 0), beta=(1, 0, 0),
-        N=[4, 6, 8, 10]),
+        N=[3, 4, 5, 6, 7, 8]),
     1e-5),
     (ODE('Вариант 6',
         p=lambda x: (x - 2) / (x + 2),
@@ -122,7 +122,7 @@ test_case = [
         f=lambda x: x * x,
         a=-1, b=1,
         alpha=(1, 0, 0), beta=(1, 0, 0),
-        N=[4, 6, 8, 10]),
+        N=[3, 4, 5, 6, 7, 8]),
     1e-7),
     (ODE('Вариант 8',
         p=lambda x: -(4 - x) / (5 - 2 * x),
@@ -131,7 +131,7 @@ test_case = [
         f=lambda x: 1 + x / 3,
         a=-1, b=1,
         alpha=(1, 0, 0), beta=(1, 0, 0),
-        N=[4, 6, 8, 10]),
+        N=[3, 4, 5, 6, 7, 8]),
     1e-8),
     (ODE('Вариант 11',
         p=lambda x: -(7 - x) / (8 + 3 * x),
@@ -140,7 +140,7 @@ test_case = [
         f=lambda x: 0.5 - x / 3,
         a=-1, b=1,
         alpha=(1, 0, 0), beta=(1, 0, 0),
-        N=[4, 6, 8, 10]),
+        N=[3, 4, 5, 6, 7, 8]),
     1e-8),
 ]
 
@@ -167,7 +167,7 @@ for ode, eps in test_case:
     for i in range(m):
     	plot_xuColocation.plot(_x, uColocation[i + 1](_x), '-', label="%d nodes" % (ode.N[i]))
 
-    plot_Delta = plt.Plot2D((r'$x$', r'$\Delta$'), (False, True))
+    plot_Delta = plt.Plot2D((r'$n$', r'$\Delta$'), (False, True))
     plot_Delta.plot(ode.N, delta1, '-', label="Galerkin")
     plot_Delta.plot(ode.N, delta2, '-', label="Colocation")
     plot_Delta.show()
