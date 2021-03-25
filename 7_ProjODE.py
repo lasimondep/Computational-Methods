@@ -133,13 +133,13 @@ test_case = [
         alpha=(1, 0, 0), beta=(1, 0, 0),
         N=[4, 6, 8, 10]),
     1e-8),
-    (ODE('Вариант 16',
-        p=lambda x: 1 + 0 * x,
-        q=lambda x: -np.cos(x) / (2 + x),
-        r=lambda x: 2 - x,
-        f=lambda x: x + 1,
+    (ODE('Вариант 11',
+        p=lambda x: -(7 - x) / (8 + 3 * x),
+        q=lambda x: (1 + x / 3),
+        r=lambda x: (1 - 0.5 * np.exp(x / 2)),
+        f=lambda x: 0.5 - x / 3,
         a=-1, b=1,
-        alpha=(0.2, -1, -0.8), beta=(0.9, 1, -0.1),
+        alpha=(1, 0, 0), beta=(1, 0, 0),
         N=[4, 6, 8, 10]),
     1e-8),
 ]
@@ -167,7 +167,7 @@ for ode, eps in test_case:
     for i in range(m):
     	plot_xuColocation.plot(_x, uColocation[i + 1](_x), '-', label="%d nodes" % (ode.N[i]))
 
-    plot_Delta = plt.Plot2D((r'$x$', r'\Delta'), (False, True))
+    plot_Delta = plt.Plot2D((r'$x$', r'$\Delta$'), (False, True))
     plot_Delta.plot(ode.N, delta1, '-', label="Galerkin")
     plot_Delta.plot(ode.N, delta2, '-', label="Colocation")
     plot_Delta.show()
