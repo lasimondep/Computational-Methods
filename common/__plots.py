@@ -1,5 +1,7 @@
 import numpy as np
+from matplotlib import cm
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import axes3d
 
 
 plt.rcParams.update({
@@ -31,4 +33,21 @@ class Plot2D:
         self.figure.savefig(filename)
 
     def show(self):
+        plt.tight_layout()
+        plt.show()
+
+class Plot3D:
+    def __init__(self, label_axes=('', '', '')):
+        self.figure = plt.figure()
+        self.ax = self.figure.add_subplot(projection='3d')
+
+        self.ax.set_xlabel(label_axes[0])
+        self.ax.set_ylabel(label_axes[1])
+        self.ax.set_zlabel(label_axes[2])
+
+    def plot(self, *args, **kwargs):
+        self.ax.plot_surface(*args, cmap=cm.coolwarm, **kwargs)
+
+    def show(self):
+        plt.tight_layout()
         plt.show()
