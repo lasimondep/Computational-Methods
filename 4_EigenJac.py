@@ -39,8 +39,9 @@ def OffDiag(A):
     # Вектор радиусов
     b = np.array([GetR(A, l) for l in range(N)])
 
-    k = 1
+    _k = 1
     while b.max() > eps:
+#        print('A:', A)
         absA = np.abs(A)
         i, j = 0, 1
         for l in range(N):
@@ -52,10 +53,12 @@ def OffDiag(A):
 
         T = Rotation(A, i, j)
         A = T @ A @ T.T
+#        print('!!!!!A:', A)
+        #input()
 
         b = np.array([GetR(A, l) for l in range(N)])
-        k += 1
-    return A, k
+        _k += 1
+    return A, _k
 
 
 # Стратегия выбора максимального элемента из строки с максимальным радиусом круга
